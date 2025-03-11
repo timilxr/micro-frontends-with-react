@@ -1,0 +1,45 @@
+# ---------------------------
+#  Core Node & pnpm
+# ---------------------------
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+.pnp/
+# If you use Yarn or NPM in addition to PNPM for any reason:
+.yarn/
+.yarnrc
+package-lock.json
+npm-debug.log
+yarn.lock
+
+# Keep your pnpm-lock.yaml so builds remain deterministic:
+# (Do not ignore pnpm-lock.yaml)
+
+# ---------------------------
+#  Build outputs
+# ---------------------------
+dist/
+build/
+packages/*/dist/
+packages/*/build/
+
+# Coverage / test reports
+coverage/
+.nyc_output/
+
+# ---------------------------
+#  Environment / local config
+# ---------------------------
+.env
+.env.*
+
+# ---------------------------
+#  OS & editor artifacts
+# ---------------------------
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.swo
+*.swn
+*.bak
