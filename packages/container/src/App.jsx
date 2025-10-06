@@ -1,12 +1,22 @@
 import React from "react";
 import "./app.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./Header";
+import { CartProvider } from "cart/CartContext";
 
 export default function App() {
-  return <>
-  <HomePage />
-  <RemoteProducts />
-  <RemoteCart />
-  </>;
+  return (
+    <CartProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="/products/*" element={<RemoteProducts />} />
+          <Route path="/cart" element={<RemoteCart />} />
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
+  );
 }
 
 function HomePage() {
