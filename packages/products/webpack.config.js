@@ -1,3 +1,7 @@
+const { plugins } = require("../cart/webpack.config");
+
+const {ModuleFederationPlugin} = require("webpack").container;
+
 module.exports = {
   mode: "development",
   devServer: {
@@ -39,4 +43,17 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "products",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./Products": "./src/ProductList.jsx"
+      },
+      shared: {
+        react: {singleton: true},
+        "react-dom": {singleton: true}
+      },
+    }),
+  ],
 };
