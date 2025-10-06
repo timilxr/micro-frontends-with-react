@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ProductList from "./ProductList";
+import { BrowserRouter } from "react-router-dom";
+import Products from "./Products";
 
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
-root.render(<ProductList />);
+root.render(<BrowserRouter><Products /></BrowserRouter>);
