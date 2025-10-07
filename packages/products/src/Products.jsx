@@ -5,11 +5,11 @@ import ProductDetail from "./ProductDetail";
 
 
 
-export default function Products() {
+export default function Products({ viewedProduct }) {
     return <div>
         <Routes>
+            <Route path="/:id" element={<ProductDetail viewedProduct={viewedProduct} />} />
             <Route index element={<ProductList />} />
-            <Route path="/:id" element={<ProductDetail />} />
         </Routes>
     </div>;
 }

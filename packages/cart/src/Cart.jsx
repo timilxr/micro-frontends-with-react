@@ -2,7 +2,7 @@ import React from "react";
 import "./cart.css";
 import { useCart } from "./CartContext";
 
-export default function Cart() {
+export default function Cart({recommendations}) {
   const {items, addItem, removeItem, clearCart} = useCart();
 
   const groupedItems = items.reduce((acc, item) => {
@@ -34,6 +34,22 @@ export default function Cart() {
           </button>
         </>
       )}
+
+      {
+        (recommendations && Object.keys(recommendations).length > 0) && (
+          <div className="recommendations">
+            <h3>Recommendations</h3>
+            <ul>
+              {Object.values(recommendations).map(product => (
+                <li key={product.id} className="recommended-product">
+                  <span>{product.name}</span>
+                  <button className="add-recommendation-button" onClick={() => addItem(product.name)}>Add to Cart</button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
     </div>
   );
 }
